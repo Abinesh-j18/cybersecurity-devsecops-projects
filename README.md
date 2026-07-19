@@ -30,7 +30,7 @@ This repository contains hands-on projects completed using virtual labs, cyberse
 
 ---
 
-## 2. Enterprise Network Design
+## 2. Enterprise Network Design and Implementation for LankaTrade Holdings (Pvt) Ltd
 
 **Topics**
 - VLANs
@@ -51,7 +51,7 @@ This repository contains hands-on projects completed using virtual labs, cyberse
 
 ---
 
-## 3. Windows Server Infrastructure
+## 3. Network Infrastructure & Server Administration Project – Cybertronic
 
 **Topics**
 - Active Directory
