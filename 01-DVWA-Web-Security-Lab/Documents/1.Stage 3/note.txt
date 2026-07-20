@@ -1,0 +1,25 @@
+Screenshot for your report
+
+For Stage 3, take these screenshots:
+
+Normal query
+SQL Injection page.
+Input: 1
+
+Result showing only:
+
+admin
+SQL Injection demonstration
+SQL Injection page.
+
+Input:
+
+1' OR '1'='1
+Result showing multiple users:
+admin
+Gordon Brown
+Hack Me
+Pablo Picasso
+Bob Smith
+
+These screenshots clearly demonstrate the difference between normal behavior and the intentionally vulnerable behavior in DVWA.

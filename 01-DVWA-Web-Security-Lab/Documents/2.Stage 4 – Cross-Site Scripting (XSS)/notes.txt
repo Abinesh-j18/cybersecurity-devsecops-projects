@@ -1,0 +1,144 @@
+Stage 4 – Cross-Site Scripting (XSS)
+
+We'll start with Reflected XSS, because it's the easiest to understand.
+
+What is XSS?
+
+Simple explanation:
+
+Normally, a website should display the text you type.
+
+A vulnerable website accidentally treats your input as HTML or JavaScript code instead of plain text, causing the browser to execute it.
+
+In DVWA, this is intentional so you can learn how it works safely in your own lab.
+
+Step 1 – Open the Reflected XSS page
+What to do
+
+On the left menu click:
+
+XSS (Reflected)
+Why?
+
+This page intentionally contains a reflected XSS vulnerability for training.
+
+What you should see
+
+A page with something similar to:
+
+What's your name?
+
+[____________]
+
+[Submit]
+If it doesn't look right
+
+Make sure your security level is still Low.
+
+Step 2 – Test with a normal input
+What to do
+
+Type:
+
+Alice
+
+Click Submit.
+
+Why?
+
+This shows the page behaving normally.
+
+What you should see
+
+Something similar to:
+
+Hello Alice
+
+No pop-up should appear.
+
+If it doesn't work
+
+Tell me exactly what you see.
+
+Step 3 – Demonstrate the XSS vulnerability
+What to do
+
+Replace the name with this exact input:
+
+<script>alert('XSS')</script>
+
+Click Submit.
+
+Why?
+
+This demonstrates that the application is inserting your input into the page without treating it as plain text. Because the browser interprets it as JavaScript, the script runs.
+
+What you should see
+
+A browser alert box appears with the message:
+
+XSS
+
+Click OK to close it.
+
+The page may also display the script text or continue showing the greeting, depending on your DVWA version.
+
+What's happening in the browser?
+
+Normally, the application should generate HTML like:
+
+Hello Alice
+
+Instead, it generates HTML that includes your input directly, for example:
+
+Hello <script>alert('XSS')</script>
+
+When the browser sees a <script> element, it executes the JavaScript inside it. In this demonstration, that JavaScript simply displays an alert box.
+
+Why is this dangerous in a real application?
+
+If an attacker can inject JavaScript into a page that other users visit, that script could potentially:
+
+Read information displayed on the page.
+Modify what users see.
+Perform actions in the user's browser using the application's own interface.
+
+Modern applications reduce this risk by properly escaping user input, validating it, and using defenses such as Content Security Policy (CSP).
+
+Screenshot for your report
+
+Take these two screenshots:
+
+Screenshot 1
+XSS (Reflected) page
+
+Input:
+
+Alice
+
+Result:
+
+Hello Alice
+Screenshot 2
+XSS (Reflected) page
+
+Input:
+
+<script>alert('XSS')</script>
+
+Browser alert box showing:
+
+XSS
+Your turn
+
+Please complete these two tests:
+
+Enter Alice and tell me what happens.
+
+Enter:
+
+<script>alert('XSS')</script>
+
+and tell me whether an alert box appears.
+
+If something different happens, send me a screenshot and I'll help you troubleshoot it before we continue.
